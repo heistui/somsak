@@ -4,7 +4,7 @@ define('LINE_API',"https://notify-api.line.me/api/notify");
 
 // export QUERY_STRING="token=RlbW3XWwbGVR8GpzDVSZGxfJvqsoskS6gdBJ5mxJb3D"; \
 // php -e -r 'parse_str($_SERVER["QUERY_STRING"], $_GET); include "test.php";'
-// parse_str($_SERVER['QUERY_STRING'], $_GET);
+parse_str($_SERVER['QUERY_STRING'], $_GET);
 $token = $_GET['token']; 
 
 $bx = json_decode(CallAPI("GET","https://bx.in.th/api/",$d));
@@ -28,8 +28,10 @@ for ($x = 0; $x < 10; $x++) {
 
 $res = notify_message($btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ,$token);
 
-echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ;
-echo $res;
+echo $_SERVER["QUERY_STRING"] . "<br>";
+echo $token . "<br>";
+echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking . "<br>";
+echo $res . "<br>";
 
 function CallAPI($method, $url, $data = false)
 {
