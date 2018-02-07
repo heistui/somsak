@@ -17,7 +17,7 @@ $xrp = "\n 1 ". $bx->{'25'}->{'secondary_currency'} . " = " . $bx->{'25'}->{'las
 $omg = "\n 1 ". $bx->{'26'}->{'secondary_currency'} . " = " . $bx->{'26'}->{'last_price'} . " " .$bx->{'26'}->{'primary_currency'} ;
 $ltc = "\n 1 ". $bx->{'30'}->{'secondary_currency'} . " = " . $bx->{'30'}->{'last_price'} . " " .$bx->{'30'}->{'primary_currency'} ;
 $aerm = "\n 1 ". $coinmarketcap[0]->{'symbol'} . " = " . $coinmarketcap[0]->{'price_thb'} . " THB";
-$ranking = "\n=========== Volume Ranking ============\n" ;
+$ranking = "\n====== Volume Ranking ======\n" ;
 
 for ($x = 0; $x < 10; $x++) {
         $ranking = $ranking . strval($x+1) . ". " . $coinmarketcapRanking[$x]->{'symbol'} . "    "
