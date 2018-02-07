@@ -27,7 +27,9 @@ for ($x = 0; $x < 10; $x++) {
 } 
 
 $res = notify_message($btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ,$token);
-print_r($res);
+
+echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ;
+echo $res;
 
 function CallAPI($method, $url, $data = false)
 {
