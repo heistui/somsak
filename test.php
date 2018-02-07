@@ -27,11 +27,11 @@ for ($x = 0; $x < 10; $x++) {
 } 
 
 $res = notify_message($btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ,$token);
-
-echo "|". $_SERVER["QUERY_STRING"] . "|" . "<br>";
-echo "|". $token . "|" . "<br>";
-echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking . "<br>";
-echo $res . "<br>";
+echo str_replace("\n","<br>",$btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking);
+// echo "|". $_SERVER["QUERY_STRING"] . "|" . "<br>";
+// echo "|". $token . "|" . "<br>";
+// echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking . "<br>";
+// echo $res . "<br>";
 
 function CallAPI($method, $url, $data = false)
 {
