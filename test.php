@@ -1,6 +1,7 @@
 <?php
 define('LINE_API',"https://notify-api.line.me/api/notify");
 
+
 // export QUERY_STRING="token=RlbW3XWwbGVR8GpzDVSZGxfJvqsoskS6gdBJ5mxJb3D"; \
 // php -e -r 'parse_str($_SERVER["QUERY_STRING"], $_GET); include "test.php";'
 parse_str($_SERVER['QUERY_STRING'], $_GET);
