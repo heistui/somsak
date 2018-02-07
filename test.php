@@ -4,8 +4,8 @@ define('LINE_API',"https://notify-api.line.me/api/notify");
 
 // export QUERY_STRING="token=RlbW3XWwbGVR8GpzDVSZGxfJvqsoskS6gdBJ5mxJb3D"; \
 // php -e -r 'parse_str($_SERVER["QUERY_STRING"], $_GET); include "test.php";'
-parse_str($_SERVER['QUERY_STRING'], $_GET);
-$token = $_GET['token']; 
+
+$token = $_GET["token"]; 
 
 $bx = json_decode(CallAPI("GET","https://bx.in.th/api/",$d));
 $coinmarketcap = json_decode(CallAPI("GET","https://api.coinmarketcap.com/v1/ticker/aerium/?convert=THB",$d));
@@ -28,8 +28,8 @@ for ($x = 0; $x < 10; $x++) {
 
 $res = notify_message($btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ,$token);
 
-echo $_SERVER["QUERY_STRING"] . "<br>";
-echo $token . "<br>";
+echo "|". $_SERVER["QUERY_STRING"] . "|" . "<br>";
+echo "|". $token . "|" . "<br>";
 echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking . "<br>";
 echo $res . "<br>";
 
