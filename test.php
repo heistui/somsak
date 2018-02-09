@@ -27,7 +27,8 @@ for ($x = 0; $x < 10; $x++) {
 } 
 
 $res = notify_message($btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking ,$token);
-echo str_replace("\n","<br>",$btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking);
+echo "success";
+// echo str_replace("\n","<br>",$btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking);
 // echo "|". $_SERVER["QUERY_STRING"] . "|" . "<br>";
 // echo "|". $token . "|" . "<br>";
 // echo $btc . $eth . $xrp . $omg . $aerm . $ltc . $ranking . "<br>";
