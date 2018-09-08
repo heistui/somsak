@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+
+  <!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Baht/Day</th>
+      <th scope="col">Pool</th>
+      <th scope="col">Exchange</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="d in calculated">
+      <th scope="row">{{ d.Symbol }} </th>
+      <td>{{ d.BathPerDay }}</td>
+      <td> {{ d.Pool }} </td>
+      <td>{{ d.Exchange }}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        calculated:[]
+      },  
+      mounted: function () {
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyDPinTrp4eDxFWaGMS-6NTWG-hGRjO07SA",
+          authDomain: "herominingcli.firebaseapp.com",
+          databaseURL: "https://herominingcli.firebaseio.com",
+          projectId: "herominingcli",
+          storageBucket: "herominingcli.appspot.com",
+          messagingSenderId: "856876980389"
+        };
+        firebase.initializeApp(config);
+        // Find the two shortest dinosaurs.
+        var ref = firebase.database().ref("calculated");
+        self = this
+        ref.orderByChild("BathPerDay").limitToLast(15).on("value", function(snapshot) {
+          snapshot.forEach(function(child) { // NOW THE CHILDREN PRINT IN ORDER
+            self.calculated.unshift(child.val())
+          });
+        })
+      }
+    })
+  </script>
+</body>
+</html>
