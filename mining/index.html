@@ -26,14 +26,16 @@
       <th scope="col">Baht/Day</th>
       <th scope="col">Pool</th>
       <th scope="col">Exchange</th>
+	  <th scope="col">GPU</th>
     </tr>
   </thead>
   <tbody>
     <tr v-for="d in calculated">
       <th scope="row">{{ d.Symbol }} </th>
-      <td>{{ d.BathPerDay }}</td>
+      <td>{{ d.BahtPerDay }}</td>
       <td> {{ d.Pool }} </td>
       <td>{{ d.Exchange }}</td>
+	  <td>{{ d.GPU }}</td>
     </tr>
   </tbody>
 </table>
@@ -58,8 +60,8 @@
         // Find the two shortest dinosaurs.
         var ref = firebase.database().ref("calculated");
         self = this
-        ref.orderByChild("BathPerDay").limitToLast(15).on("value", function(snapshot) {
-          snapshot.forEach(function(child) { // NOW THE CHILDREN PRINT IN ORDER
+        ref.orderByChild("BahtPerDay").on("value", function(snapshot) {
+          snapshot.forEach(function(child) { // NOW THE CHILDREN PRINT IN ORDER.limitToLast(15)
             self.calculated.unshift(child.val())
           });
         })
