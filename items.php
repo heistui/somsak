@@ -2289,11 +2289,8 @@ $data = array(
   "youth",
   "zero"
 )
-header('Content-Type: application/json');
 
-$myObj->items = $data;
-$myJSON = json_encode($myObj);
 
-echo $myJSON;
+echo count($data);
 
 ?>
