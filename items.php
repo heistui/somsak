@@ -2290,7 +2290,8 @@ $data = '{"items":[
   "zero"
 ]}'
 
-$myJSON = json_encode($data);
+$d = json_decode($data);
+$myJSON = json_encode($d);
 
 echo $myJSON;
 ?>
