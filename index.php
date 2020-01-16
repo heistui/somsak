@@ -3,10 +3,11 @@
   $coin = $_GET['c'];
 
 	if (strcmp($coin,"") == 0) {
-     $coin = "BXTH:BTCTHB";
+     $coin = "BINANCE:btcUSDT";
 	}
   
 ?>
+<!-- https://www.tradingview.com/wiki/Widget:TradingView_Widget  -->
 <html lang="en">
   <head>
     <title><?php echo $coin  ?></title>
