@@ -1,16 +1,11 @@
 <!doctype html>
 <?php
-  $coin = $_GET['c'];
-
-	if (strcmp($coin,"") == 0) {
-     $coin = "BINANCE:btcUSDT";
-	}
-  
+  $c = $_GET['c'];
 ?>
 <!-- https://www.tradingview.com/wiki/Widget:TradingView_Widget  -->
 <html lang="en">
   <head>
-    <title><?php echo $coin  ?></title>
+    <title><?php echo $c  ?></title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,43 +26,114 @@
 html,body,.col-md-12{
   height:100%;
 }
-.row {
-	height:50%;
-}
-.row > iframe {
-  height:100%;
-}
-iframe,.col-md-4,.col-12 {
-       padding-right: 0px; 
-      padding-left: 0px; 
-	  border-width:0px;
-  }
-  .row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: 0px; 
-    margin-left: 0px; 
-}
+
+
   
   </style>
   <body >
+      <div id="raw"><?php echo $c  ?></div>
+      <div id="convert"></div>
+      <script>
+        var x = {
+            "1": "ๅ",
+            "!": "+",
+            "@": "๑",
+            "2": "/",
+            "3": "-",
+            "#": "๒",
+            "4": "ภ",
+            "$": "๓",
+            "5": "ถ",
+            "%": "๔",
+            "6": "ุ",
+            "^": "ู",
+            "7": "ึ",
+            "&": "฿",
+            "8": "ค",
+            "*": "๕",
+            "9": "ต",
+            "(": "๖",
+            "0": "จ",
+            ")": "๗",
+            "-": "ข",
+            "_": "๘",
+            "=": "ช",
+            "+": "๙",
+            "q": "ๆ",
+            "Q": "๐",
+            "w": "ไ",
+            "W": "\"",
+            "e": "ำ",
+            "E": "ฎ",
+            "r": "พ",
+            "R": "ฑ",
+            "t": "ะ",
+            "T": "ธ",
+            "y": "ั",
+            "Y": "ํ",
+            "u": "ี",
+            "U": "๊",
+            "i": "ร",
+            "I": "ณ",
+            "o": "น",
+            "O": "ฯ",
+            "p": "ย",
+            "P": "ญ",
+            "[": "บ",
+            "{": "ฐ",
+            "]": "ล",
+            "\\": "ฃ",
+            "|": "ฅ",
+            "a": "ฟ",
+            "A": "ฤ",
+            "s": "ห",
+            "S": "ฆ",
+            "d": "ก",
+            "D": "ฏ",
+            "f": "ด",
+            "F": "โ",
+            "g": "เ",
+            "G": "ฌ",
+            "h": "้",
+            "H": "็",
+            "j": "่",
+            "J": "๋",
+            "k": "า",
+            "K": "ษ",
+            "l": "ส",
+            "L": "ศ",
+            ";": "ว",
+            ":": "ซ",
+            "": "ง",
+            "\"": ".",
+            "z": "ผ",
+            "Z": "(",
+            "x": "ป",
+            "X": ")",
+            "c": "แ",
+            "C": "ฉ",
+            "v": "อ",
+            "V": "ฮ",
+            "b": "ิ",
+            "B": "ฺ",
+            "n": "ท",
+            "N": "์",
+            "m": "ท",
+            "M": "?",
+            "`": "ม",
+            "<": "ฒ",
+            ".": "ใ",
+            ">": "ฬ",
+            "/": "ฝ",
+            "?": "ฦ"
+          }
 
-<div class="row">
- <iframe class="col-12 col-md-4" src="https://s.tradingview.com/widgetembed/?symbol=<?php echo $coin  ?>&interval=60&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=MACD%40tv-basicstudies&hideideas=1&theme=Light&style=1&timezone=Asia/Bangkok&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.ccn.com&utm_medium=widget&utm_campaign=chart"></iframe>
- <iframe class="col-12 col-md-4" src="https://s.tradingview.com/widgetembed/?symbol=<?php echo $coin  ?>&interval=120&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=MACD%40tv-basicstudies&hideideas=1&theme=Light&style=1&timezone=Asia/Bangkok&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.ccn.com&utm_medium=widget&utm_campaign=chart"></iframe>
- <iframe class="col-12 col-md-4" src="https://s.tradingview.com/widgetembed/?symbol=<?php echo $coin  ?>&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=MACD%40tv-basicstudies&hideideas=1&theme=Light&style=1&timezone=Asia/Bangkok&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.ccn.com&utm_medium=widget&utm_campaign=chart"></iframe>
- <iframe class="col-12 col-md-4" src="https://s.tradingview.com/widgetembed/?symbol=<?php echo $coin  ?>&interval=1&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=MACD%40tv-basicstudies&hideideas=1&theme=Light&style=1&timezone=Asia/Bangkok&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.ccn.com&utm_medium=widget&utm_campaign=chart"></iframe>
- <iframe class="col-12 col-md-4" src="https://s.tradingview.com/widgetembed/?symbol=<?php echo $coin  ?>&interval=5&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=MACD%40tv-basicstudies&hideideas=1&theme=Light&style=1&timezone=Asia/Bangkok&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.ccn.com&utm_medium=widget&utm_campaign=chart"></iframe>
- <iframe class="col-12 col-md-4" src="https://s.tradingview.com/widgetembed/?symbol=<?php echo $coin  ?>&interval=30&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=MACD%40tv-basicstudies&hideideas=1&theme=Light&style=1&timezone=Asia/Bangkok&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.ccn.com&utm_medium=widget&utm_campaign=chart"></iframe>
-</div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	
+          var txt = document.getElementById("raw").innerHTML
+          var result = ""
+          for (var i in txt) {
+            result += x[txt[i]]
+          }
+          document.getElementById("convert").innerHTML = result
+      </script>
   </body>
 </html>
